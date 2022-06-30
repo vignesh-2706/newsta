@@ -52,11 +52,11 @@ def predict_cancer(image):
 def home():
     return render_template('home.html')
 
-@app.route('/predict.html', methods=['POST','GET'])
+@app.route('/predict', methods=['POST','GET'])
 def predict():
     return render_template('predict.html')
 
-@app.route('/result.html', methods=['POST','GET'])
+@app.route('/result', methods=['POST','GET'])
 def result():
     img = request.files['img'] 
     #parr = np.frombuffer(img, np.uint8)
