@@ -1,13 +1,10 @@
 from flask import Flask, render_template, request
 import tensorflow as tf
 from keras.models import load_model
-from keras.preprocessing.image import ImageDataGenerator
-from keras.preprocessing import image
 import numpy as np
 from PIL import Image
 import io
 import base64
-import cv2
 
 model = load_model('my_model.h5')
 class_label=["Actinic keratoses/ Bowen's Disease ",
@@ -51,15 +48,15 @@ def predict_cancer(image):
     return class_label[prediction[0]],class_desc[prediction[0]], confidence.round(2)
 
 @app.route('/',methods=['POST','GET'])
-@app.route('/home.html', methods=['POST','GET'])
+@app.route('/home', methods=['POST','GET'])
 def home():
     return render_template('home.html')
 
-@app.route('/predict.html', methods=['POST','GET'])
+@app.route('/predict', methods=['POST','GET'])
 def predict():
     return render_template('predict.html')
 
-@app.route('/result.html', methods=['POST','GET'])
+@app.route('/result', methods=['POST','GET'])
 def result():
     img = request.files['img'] 
     #parr = np.frombuffer(img, np.uint8)
