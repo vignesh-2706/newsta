@@ -2,6 +2,7 @@ Flask
 keras
 numpy
 tensorflow-cpu
+opencv_python
 gunicorn
 werkzeug
 h5py
