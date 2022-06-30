@@ -48,15 +48,15 @@ def predict_cancer(image):
     return class_label[prediction[0]],class_desc[prediction[0]], confidence.round(2)
 
 @app.route('/',methods=['POST','GET'])
-@app.route('/home', methods=['POST','GET'])
+@app.route('/home.html', methods=['POST','GET'])
 def home():
     return render_template('home.html')
 
-@app.route('/predict', methods=['POST','GET'])
+@app.route('/predict.html', methods=['POST','GET'])
 def predict():
     return render_template('predict.html')
 
-@app.route('/result', methods=['POST','GET'])
+@app.route('/result.html', methods=['POST','GET'])
 def result():
     img = request.files['img'] 
     #parr = np.frombuffer(img, np.uint8)
